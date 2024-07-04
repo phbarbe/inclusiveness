@@ -4,18 +4,22 @@ import requests
 import random
 from fastapi import FastAPI
 from typing import List, Dict
-from typing import Union
+#from typing import Union
 
 #Télécharge le fichier csv contenant les questions du questionnaire
 url = "https://github.com/phbarbe/inclusiveness/raw/main/Questionnaire.csv"
+r = requests.get(url)
 
 df_questionnaire = pd.read_csv(url, sep=";")
-df_questionnaire.head()
+
+
+
 
 #transforme le dataframe en dictionnaire
 
 quiz = df_questionnaire.to_dict('index')
 quiz
+
 
 #Tire au sort 20 questions du questionnaire
 
